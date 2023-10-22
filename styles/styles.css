@@ -1,7 +1,7 @@
 html {
     height: 100%;
     font-size: 1rem;
-    font-family: 'Exo';
+    font-family: 'Exo', serif;
     box-sizing: border-box;
 }
 
@@ -33,10 +33,12 @@ header {
     align-items: center;
     justify-content: space-around;
     background-color: rgb(255, 245, 232);
+    box-shadow: 0 5px 5px lightgray;
 }
 
 .logo {
     align-items: center;
+    cursor: pointer;
 }
 
 .logo i {
@@ -61,6 +63,21 @@ header {
     border: solid 1px rgb(170, 170, 170);
     padding: 0.2rem 1.5rem;
     font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.search-bar > input:hover {
+    height: 32px;
+    margin: 0.5rem;
+    transition: 150ms;
+}
+
+.search-bar > input:focus {
+    height: 32px;
+    margin: 0.5rem;
+    cursor:auto;
+    border: none;
 }
 
 .search-bar > button {
@@ -70,15 +87,44 @@ header {
     padding: 0;
     border: none;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.search-bar > button:hover {
+   font-size: 1.8rem;
+   transition: 180ms;
 }
 
 .profile {
     align-items: center;
 }
 
+.notification-bell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 5rem;
+    margin: 0 2rem;
+}
+
+.notification-bell:hover {
+    position: relative;
+    bottom: 5px;
+    cursor: pointer;
+    transition: 1s;
+}
+
 .profile i {
     font-size: 1.5rem;
-    margin: 1.5rem 2rem;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
 }
 
 .profile img {
@@ -94,7 +140,8 @@ header {
     grid-column: 1/2;
     grid-row: 2/-1;
     background-color:whitesmoke;
-    height: 100vh;
+    height: min-content;
+    border-radius: 0 0 20px 0;
 }
 
 /* books */
@@ -102,7 +149,7 @@ header {
 .book-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 15px;
     padding: 10px;
     margin: 1rem;
     grid-auto-rows: 400px;
@@ -119,21 +166,32 @@ header {
     justify-content: center;
 }
 
+.book:hover {
+    position: relative;
+    top: -0.8rem;   
+    box-shadow: -5px 10px 10px rgb(128, 128, 128);
+    transition: 180ms;
+}
+
+
 .book > img {
     height: 80%;
     width: 80%;
     margin: 1.8rem 1.8rem auto 1.8rem;
     background-color: white;
     border-radius: 10px;
+    cursor: pointer;
+    object-fit: contain;
 }
 
 .book h3 {
     text-align: center;
     margin: 0 0.5rem 1rem 0.5rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
-.add-book {
+.add-container {
     height: 80%;
     width: 80%;
     margin: 1.8rem 1.8rem auto 1.8rem;
@@ -155,7 +213,95 @@ header {
     align-items: center;
 }
 
-.add-book i {
+.add-container i {
     font-size: 3rem;
     color: whitesmoke;
 }
+
+.addModal {
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: 1px solid rgb(128, 128, 128);
+    padding: 3rem;
+}
+
+.addModal label {
+    display: block;
+}
+
+.addModal input {
+    display: block;
+    margin-bottom: 1rem;
+    height: 1.5rem;
+    width: 90%;
+    border: 1px solid rgb(128, 128, 128);
+    padding: 0.2rem 0.5rem;
+    font-size: 1.1rem;
+}
+
+.addModal select {
+    font-size: 1.3rem;
+    height: 2rem;
+    width: 95%;
+    margin: 0 0 1rem 0;
+}
+
+.addModal button {
+    margin: 1rem auto;
+    height: 2rem;
+    width: 10rem;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border: 1px solid rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+.bookModal {
+    height: fit-content;
+    width: 400px;
+    border-radius: 20px;
+    background-color: lightgray;
+}
+
+.bookModal img {
+    height: 50%;
+    width: 80%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    left: 2.4rem;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.bookModal .info {
+    margin: 1rem;
+}
+
+.bookModal span {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 1rem 0 1rem 2rem;
+}
+
+.bookModal p:nth-of-type(1) {
+    margin-top: 2rem;
+}
+
+#divStatus p {
+    margin-top: 0;
+}
+
+#divStatus button {
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2rem;
+    width: 10rem;
+    border-radius: 5px;
+    border: 1px solid rgb(128, 128, 128);
+    cursor: pointer;
+}
+
