@@ -44,29 +44,31 @@
                 </div>
                 <h3>New</h3>
                 <dialog class="addModal bookModal">
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" id="title" required>
-                    <label for="author">Author:</label>
-                    <input type="text" name="author" id="author" required>
-                    <label for="year">Year:</label>
-                    <input type="number" name="year" id="year" required>
-                    <label for="image">Book Cover</label>
-                    <input type="file" name="image" id="image">
-                    <label for="status">Status</label>
-                    <select name="status" id="status" required>
-                        <option value="" disabled selected>(Select)</option>
-                        <option value="unread">Unread</option>
-                        <option value="read">Read</option>
-                        <option value="reading">Currently Reading</option>
-                    </select>
-                    <button id="addButton" type="button">Add Book</button>
+                    <form method="dialog">
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title" required>
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" id="author" required>
+                        <label for="year">Year:</label>
+                        <input type="number" name="year" id="year" required>
+                        <label for="image">Book Cover (Path)</label>
+                        <input type="text" name="image" id="coverImagePath" required>
+                        <label for="status">Status</label>
+                        <select name="status" id="status" required>
+                            <option value="" disabled selected>(Select)</option>
+                            <option value="Unread">Unread</option>
+                            <option value="Read">Read</option>
+                            <option value="Currently Reading">Currently Reading</option>
+                        </select>
+                        <button id="addButton">Add Book</button>
+                    </form>
                 </dialog>
             </div>
             <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
+                <img src="https://images1.penguinrandomhouse.com/cover/9780756413712" alt="">
                 <h3>The name of the wind</h3>
                 <dialog class="bookModal">
-                    <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="octopus">
+                    <img src="https://images1.penguinrandomhouse.com/cover/9780756413712" alt="book-cover">
                     <div class="info">
                         <p><span>Title: </span> The name of the wind</p>
                         <p><span>Author: </span> Patrick Rothfuss</p>
@@ -79,52 +81,20 @@
                 </dialog>
             </div>
             <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
+                <img src="https://nidodelibros.com/wp-content/uploads/2021/04/9788439732471.jpeg" alt="">
+                <h3>One hundred years of solitude</h3>
             </div>
             <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
+                <img src="https://m.media-amazon.com/images/I/41oKDj3pd2L._SY445_SX342_.jpg" alt="">
+                <h3>El nombre de la rosa</h3>
             </div>
             <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
+                <img src="https://www.penguinlibros.com/co/2725822-large_default/rayuela.jpg" alt="">
+                <h3>Rayuela</h3>
             </div>
             <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
-            </div>
-            <div class="book">
-                <img src="./images/Cute-Baby-Octopus-Painting-Cartoon-Hyper-Realistic-Intricate-Detail-Kawaii-55837579-1.png" alt="">
-                <h3>The name of the wind</h3>
+                <img src="https://images.blinkist.io/images/books/5ed16d6e6cee070006a5a2d5/1_1/470.jpg" alt="">
+                <h3>Maps of meaning</h3>
             </div>
         </div>
     </div>
