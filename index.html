@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo">
     <script src="https://kit.fontawesome.com/f42142556c.js" crossorigin="anonymous"></script>
+    <script src="./scripts/functions.js" defer></script>
     <script src="./scripts/script.js" defer></script>
     <title>Library</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tilt">
@@ -18,7 +19,7 @@
                 <h1>ALEXANDRIA</h1>
             </div>
             <div class="search-bar">
-                <input type="text" >
+                <input type="text" placeholder="Search by title">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             
@@ -33,6 +34,23 @@
             </div>
         </header>
         <div class="filters flex-container">
+            <form>
+                <div id="authorFilter">
+                    <h3>Author: </h3>
+                    
+                </div>
+                <div id="yearFilter">
+                    <h3>Year: </h3>
+                    
+                </div>
+                <div id="statusFilter">
+                    <h3>Status: </h3>
+                    
+                </div>
+                <button type="button" id="filterButton">Filter</button>
+            </form>
+            
+
 
         </div>
         <div class="grid-container book-list">
@@ -79,22 +97,6 @@
                         </div>
                     </div>
                 </dialog>
-            </div>
-            <div class="book">
-                <img src="https://nidodelibros.com/wp-content/uploads/2021/04/9788439732471.jpeg" alt="">
-                <h3>One hundred years of solitude</h3>
-            </div>
-            <div class="book">
-                <img src="https://m.media-amazon.com/images/I/41oKDj3pd2L._SY445_SX342_.jpg" alt="">
-                <h3>El nombre de la rosa</h3>
-            </div>
-            <div class="book">
-                <img src="https://www.penguinlibros.com/co/2725822-large_default/rayuela.jpg" alt="">
-                <h3>Rayuela</h3>
-            </div>
-            <div class="book">
-                <img src="https://images.blinkist.io/images/books/5ed16d6e6cee070006a5a2d5/1_1/470.jpg" alt="">
-                <h3>Maps of meaning</h3>
             </div>
         </div>
     </div>
