@@ -186,14 +186,14 @@ function filterByAttribute(filtersObj, library) {
         const bookCard = document.querySelector(id);
         const filtersKeys = Object.keys(filtersObj);
 
-        const keep = filtersKeys.some(key => {
+        let keep = filtersKeys.some(key => {
 
             const filterValueIndex = filtersObj[key].indexOf(dash(book[key]));
 
-            if (dash(book[key]) !== filtersObj[key][filterValueIndex] && Object.keys(filtersObj).length >= 1) {
+            if (dash(book[key]) !== filtersObj[key][filterValueIndex] && filtersKeys.length >= 1) {
                 return false
     
-            } else if (dash(book[key]) == filtersObj[key][filterValueIndex] && Object.keys(filtersObj).length >= 1) {
+            } else if (dash(book[key]) == filtersObj[key][filterValueIndex] && filtersKeys.length >= 1) {
                 return true
 
             } else if (Object.keys(filtersObj).length == 0) {
@@ -201,10 +201,42 @@ function filterByAttribute(filtersObj, library) {
             }
         })
 
+        if (filtersKeys.length == 0) {
+            keep = true;
+        }
+
         if (keep) {
             bookCard.style.display = "flex";
         } else {
             bookCard.style.display = "none";
         }
     })
+}
+
+function displayFiltered(library) {
+    const filterCategories = document.querySelectorAll(".filters > form > div");
+    const filters = {};
+
+    for (let i of filterCategories) {
+        const category = i.querySelectorAll("div");
+
+        for (let j of category) {
+            const key = j.classList[1];
+            let element = j.classList[0];
+
+            if (key == "year") {
+                element = element.slice(1);
+            }
+            const isChecked = j.querySelector("input").checked;
+    
+            if (isChecked && !filters.hasOwnProperty(key)) {
+                filters[key] = [element];
+                
+            } else if (isChecked && filters.hasOwnProperty(key)) {
+                filters[key].push(element)
+            }
+        }
+    }
+
+    filterByAttribute(filters, library)
 }
