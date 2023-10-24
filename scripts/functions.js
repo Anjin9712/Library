@@ -80,7 +80,7 @@ function setModalDialog(title, author, year, status, image_path) {
     return modalDialog
 }
 
-function setFilterHTML(attribute) {
+function setFilterHTML(attribute, type) {
 
     const div = document.createElement("div");
     let attributeId = dash(attribute);
@@ -89,7 +89,7 @@ function setFilterHTML(attribute) {
         attributeId = `a${attribute}`
     }
 
-    div.classList.add(attributeId);
+    div.classList.add(attributeId, type);
 
     const label = document.createElement("label");
     const checkbox = document.createElement("input");
@@ -105,7 +105,7 @@ function setFilterHTML(attribute) {
 function setFilters(author, year, status) {
 
     const valuesArr = [author.value, year.value, status.value];
-    const attributesArr = [author.id, year.id, status.id]
+    const attributesArr = [author.id, year.id, status.id];
     
     for (let i = 0; i < 3; i++) {
         let valueId = dash(valuesArr[i]);
@@ -115,12 +115,12 @@ function setFilters(author, year, status) {
         }
 
         const category = document.querySelector(`#${attributesArr[i]}Filter`);
-
         let divClass = document.querySelector(`#${attributesArr[i]}Filter .${valueId}`);
+        const type = attributesArr[i]
             
         if (divClass === null) {
 
-            const div = setFilterHTML(valuesArr[i]);
+            const div = setFilterHTML(valuesArr[i], type);
             category.appendChild(div);
         }
     }
@@ -158,7 +158,7 @@ function addBookToLibrary(title, author, year, status, image_path) {
 
     /* adds book to array and html */
 
-    addBookToArray(title.value, author.value, "-" + year.value, status.value, image_path.value);
+    addBookToArray(title.value, author.value, year.value, status.value, image_path.value);
     addBookToHtml(title.value, author.value, year.value, status.value, image_path.value);
     setFilters(author, year, status);
 }
@@ -176,16 +176,35 @@ function removeBookFromArray(title) {
     })
 }
 
-function filterByAttribute(key, value) {
-    library.forEach((book, index) => {
-        const id = "#" + dash(library[index]["title"]);
+function filterByAttribute(filtersObj, library) {
+
+    /* iterates over the library and evaluates if any of the book's attributes 
+    fulfills at least one of the filters*/
+
+    library.forEach((book) => {
+        const id = "#" + dash(book["title"]);
         const bookCard = document.querySelector(id);
+        const filtersKeys = Object.keys(filtersObj);
 
-        if (book[key] !== value && bookCard.style.display !== "none") {
+        const keep = filtersKeys.some(key => {
+
+            const filterValueIndex = filtersObj[key].indexOf(dash(book[key]));
+
+            if (dash(book[key]) !== filtersObj[key][filterValueIndex] && Object.keys(filtersObj).length >= 1) {
+                return false
+    
+            } else if (dash(book[key]) == filtersObj[key][filterValueIndex] && Object.keys(filtersObj).length >= 1) {
+                return true
+
+            } else if (Object.keys(filtersObj).length == 0) {
+                return true
+            }
+        })
+
+        if (keep) {
+            bookCard.style.display = "flex";
+        } else {
             bookCard.style.display = "none";
-
-        } else if (book[key] === value && bookCard.style.display === "none") {
-            bookCard.style.display = "block"
         }
     })
 }
