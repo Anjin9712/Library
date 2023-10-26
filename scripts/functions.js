@@ -97,7 +97,7 @@ function setFilterHTML(attribute, type) {
     checkbox.setAttribute('type', "checkbox");
     checkbox.value = dash(attribute);
 
-    div.append(label, checkbox);
+    div.append(checkbox, label);
 
     return div   
 }
